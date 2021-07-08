@@ -1,0 +1,30 @@
+{
+  "name": "node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.3.2",
+    "express-session": "^1.17.1",
+    "firebase": "^8.6.5",
+    "firebase-admin": "^9.9.0",
+    "firebase-tools": "^9.11.0",
+    "firestore": "^1.1.6",
+    "functions": "^1.0.9",
+    "handlebars-helper-import": "^2.4.0",
+    "helper-concat": "^0.3.0",
+    "multer": "^1.4.2",
+    "nodemon": "^2.0.7",
+    "pug": "^3.0.2"
+  }
+}
