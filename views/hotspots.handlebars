@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/bootstrap-grid.css">
+    <link rel="stylesheet" href="css/task1.css">
+    <link rel="stylesheet" href="css/all.css">
+    {{!-- <link rel="stylesheet" href="css/bootstrap.min.css"> --}}
+    <link rel="stylesheet" href="css/popup2.css">
+    <title> Life Savers</title>
+</head>
+
+<body>
+
+    <header>
+        <div class="overlay"></div>
+        <input type="text" name="user_id" value="{{uid}}" id ="uid" hidden>
+        <div class="container">
+            <div class="row align-items-center justify-content-md-between top-bar">
+                <div class="col-12 col-md-2 logo">
+                    LiFe SaVeRs
+                </div>
+                <div class="col-12 col-md-8">
+                    <nav>
+      <ul class="d-flex justify-content-center justify-content-md-end">
+                                <li><a href="index.html">Home</a></li>
+                                 <li class="menu">
+                                    <a href="D%20H.html">Donation Hostspots</a>
+                                <ul class="submenu">
+                                        
+                                 <li><a href="my%20rr.html">My Requests</a></li>
+                        
+                                    </ul>
+                                
+                                </li>
+                                 
+                                 <li class="menu">
+                                    <a href="/profile" >Settings</a>
+                                <ul class="submenu">
+
+                                 <li><a href="/emApass">Email and Password</a></li>
+                        
+                                    </ul>
+                                
+                                </li>
+                                 
+                                 
+                                       <li><a href="#">About Us</a></li>
+                                <li><a href="/logout">Log Out</a></li>
+                            </ul>
+                    </nav>
+                </div>
+            </div>
+           <html><head><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script><style>.register{
+    background: -webkit-linear-gradient(left, #af3135, #d94141);
+    margin-top: 3%;
+    padding: 3%;
+}
+.register-left{
+    text-align: center;
+    color: #fff;
+    margin-top: 4%;
+}
+.register-left input{
+    border: none;
+    border-radius: 1.5rem;
+    padding: 2%;
+    width: 60%;
+    background: #f8f9fa;
+    font-weight: bold;
+    color: #423938;
+    margin-top: 30%;
+    margin-bottom: 3%;
+    cursor: pointer;
+}
+.register-right{
+    background: #f8f9fa;
+    border-top-left-radius: 10% 50%;
+    border-bottom-left-radius: 10% 50%;
+}
+.register-left img{
+    margin-top: 15%;
+    margin-bottom: 5%;
+    width: 25%;
+    -webkit-animation: mover 2s infinite  alternate;
+    animation: mover 1s infinite  alternate;
+}
+@-webkit-keyframes mover {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-20px); }
+}
+@keyframes mover {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-20px); }
+}
+.register-left p{
+    font-weight: lighter;
+    padding: 12%;
+    margin-top: -9%;
+}
+.register .register-form{
+    padding: 10%;
+    margin-top: 10%;
+}
+.btnRegister{
+    float: right;
+    margin-top: 10%;
+    border: none;
+    border-radius: 1.5rem;
+    padding: 2%;
+    background: #cc0033;
+    color: #fff;
+    font-weight: 600;
+    width: 50%;
+    cursor: pointer;
+}
+.register .nav-tabs{
+    margin-top: 3%;
+    border: none;
+    background: #cc0033;
+    border-radius: 1.5rem;
+    width: 28%;
+    float: right;
+}
+.register .nav-tabs .nav-link{
+    padding: 2%;
+    height: 34px;
+    font-weight: 600;
+    color: #fff;
+    border-top-right-radius: 1.5rem;
+    border-bottom-right-radius: 1.5rem;
+}
+.register .nav-tabs .nav-link:hover{
+    border: none;
+}
+.register .nav-tabs .nav-link.active{
+    width: 100px;
+    color: #cc0036;
+    border: 2px solid #cc0000;
+    border-top-left-radius: 1.5rem;
+    border-bottom-left-radius: 1.5rem;
+}
+.register-heading{
+    text-align: center;
+    margin-top: 8%;
+    margin-bottom: -15%;
+    color: #57494b;
+}</style></head>
+
+        <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-analytics.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
+
+    <script>
+            var firebaseConfig = {
+                apiKey: "AIzaSyCDzg_QY-v1B2dnMcn1cdTqcgxR-DOqzJI",
+                authDomain: "blood-donation-app-92caa.firebaseapp.com",
+                databaseURL: "https://blood-donation-app-92caa-default-rtdb.europe-west1.firebasedatabase.app",
+                projectId: "blood-donation-app-92caa",
+                storageBucket: "blood-donation-app-92caa.appspot.com",
+                messagingSenderId: "71223960487",
+                appId: "1:71223960487:web:e67f010aa744567530cc82",
+                measurementId: "G-99YFH2BSFC"
+                };
+
+            firebase.initializeApp(firebaseConfig);
+async function hotspot_info(){
+    await firebase.firestore().collection("donation_hotspot").get().then(async (query) => {
+                var user_id = document.getElementById("uid").value;
+                var size = query.size
+                var loc = []
+                var n = []
+                var mn = []
+                var ma = []
+                var ido = []
+                var ht_id = []
+                var nU = []
+                var  pU = []
+
+                await query.forEach(doc => {
+                    console.log(doc.data().location._long);
+                    loc.push({
+                        long:doc.data().location._long,
+                        lat:doc.data().location._lat
+                    })
+                    n.push(doc.data().name)
+                    mn.push(doc.data().most_needed)
+                    ma.push(doc.data().most_available)
+                    ido.push(doc.data().org_id)
+                    ht_id.push(doc.id)
+                })
+                let container = document.querySelector(".box");
+                for (let i=0; i<size; i++){
+                    let div = document.createElement("div");
+                    div.classList.add("col-12")
+
+
+                    console.log(n[i])
+                    console.log(mn[i]) 
+                    console.log(ma[i])
+                    console.log("idoo ",ido[i])
+                    
+
+
+                    await firebase.firestore().collection("users").doc(ido[i]).get().then(async (querySnapshot) => {
+                        console.log("Teest",querySnapshot.data().name)
+                        await nU.push(querySnapshot.data().name);
+                        await pU.push(querySnapshot.data().org_number);
+
+
+                        div.innerHTML = ` <div class="box1" >
+                                <iframe src="https://maps.google.com/maps?q=${loc[i].long},${loc[i].lat}&hl=es;z=14&output=embed" width="100%" height="40%" style="border:0; border-top-left-radius: 15%; border-top-right-radius: 15%;" allowfullscreen="" loading="lazy"><br></iframe> 
+                            
+                           <b><span class="txt-orange" style="margin-left: 12%; font-size: 15px; font-family: ">${n[i]}</span><br></b><br>
+                           
+                            <div class ="box2 " style="width: 50%;float: left;height: auto ;font-size: 11px; padding-left: 5px; font-family:cursive" >Organization Name<br>Organization Number: <br> Available types <br>Need type</div>
+                            <div class="box3" style="width: 50%; float: right;height: auto">
+                                <span>${nU[i]}</span><br>
+                                <span>${pU[i]}</span><br>
+                                <span>${ma[i]}</span><br>
+                                 <span>${mn[i]}</span><br>
+                                
+                            </div>
+                                <button id="test" onclick="add()">Request Donation</button>
+                                <div class="modal-container" id="modal_container">
+                                    
+                                    <div class="modal">
+                                        <div class="close-btn" onclick="remove()" style="background: #B31217">&times;</div>
+
+                                        <p></p>  &emsp;
+                                        <form action= "/hotspots"  method="POST">
+                                        <input type="text" name="org_id" value = ${ido[i]}   hidden>
+                                        <input type="text" name="hotspot_id" value = ${ht_id[i]}  hidden>
+                                        <input type="text" name="user_id" value=${user_id}  hidden>
+                                        <lable>Blood type: </lable>
+                                        <select name="blood" id="blood"  class="inpst">
+                                                <option value="+A">+A</option>
+                                                <option value="-A">-A</option>
+                                                <option value="+B">+B</option>
+                                                <option value="-B">-B</option>
+                                                <option value="+AB">+AB</option>
+                                                <option value="-AB">-AB</option>
+                                                <option value="+O">+O</option>
+                                                <option value="-O">-O</option>
+                                        </select>
+                                        
+                                        <input type="text" placeholder="The number of blood bags required"  name="amount" class="inpst"/>
+
+                                        <textarea  name="medical_reason" rows="4" cols="28" placeholder="The reason for the request" class="inpst"></textarea>
+
+                                        <input type="radio" id="agree" name="agree">
+                                        <input type="text" name ="reason" value="request" hidden>
+                                        <p>I agree to shere my personalprofile data  with this Organization</p>
+
+                                        <button class="chbtn" type="submit" >Send</button>
+                                    </div>
+                                     </form>
+                                </div>
+
+                             <button id="test" onclick="add2()">Donate</button>
+                                <div class="modal-container" id="modal_container2">
+                                    
+                                    <div class="modal">
+                                        <div class="close-btn" onclick="remove2()" style="background: #B31217">&times;</div>
+
+                                        <p></p>  &emsp;
+                                        <form action= "/hotspots"  method="POST">
+                                        <input type="text" name="org_id" value = ${ido[i]}   hidden>
+                                        <input type="text" name="hotspot_id" value = ${ht_id[i]}  hidden>
+                                        <input type="text" name="user_id" value=${user_id}  hidden>
+                                        <lable>Blood type: </lable>
+                                        <select name="blood" id="blood"  class="inpst">
+                                                <option value="+A">+A</option>
+                                                <option value="-A">-A</option>
+                                                <option value="+B">+B</option>
+                                                <option value="-B">-B</option>
+                                                <option value="+AB">+AB</option>
+                                                <option value="-AB">-AB</option>
+                                                <option value="+O">+O</option>
+                                                <option value="-O">-O</option>
+                                        </select>
+                                        
+                                        <br>Amount :<input type="text" placeholder="The number of blood bags required"  name="amount" class="inpst"/>
+
+                                        <input name="medical_reason" value="this user is donating" class="inpst" hidden>
+                                        <input type="text" name ="reason" value = "donate" hidden>
+
+                                        <br>
+                                        <input type="radio" id="agree" name="agree">
+                                        <p>I agree to shere my personalprofile data  with this Organization</p>
+
+                                        <button class="chbtn" type="submit" >Send</button>
+                                    </div>
+                                     </form>
+                                </div>
+                        </div><br>`;
+                        container.appendChild(div)
+                    })
+                }
+            })
+}
+function add(){
+                document.getElementById('modal_container').classList.add('show');
+            }
+            function add2(){
+                document.getElementById('modal_container2').classList.add('show');
+            }
+
+            function remove(){
+                document.getElementById('modal_container').classList.remove('show');
+            }
+            function remove2(){
+                document.getElementById('modal_container2').classList.remove('show');
+            }
+            hotspot_info();
+            
+    </script>
+
+    <div class="container register">
+                <div class="row">
+                    <div class="col-md-3 register-left">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3Gu0Pq5VvyxKBUuiiT02Tcem7_LrE6sw8xBmnVKaOhqOZeiwYMSET2tPSO8azTJtzAx8&amp;usqp=CAU" alt="">
+                  <h3>Current User</h3>
+                        <p>We are happy to help you</p>
+                      
+                    </div>
+                    <div class="col-md-9 register-right">
+                      
+                    <div class="box">
+               
+                </div>
+                    </div>
+                </div>
+
+            </div>	
+             <p>{{ error }}</p>			                            
+               </body>
+               

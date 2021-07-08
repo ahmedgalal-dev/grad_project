@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/bootstrap-grid.css">
+    <link rel="stylesheet" href="css/main.css">
+    <title> Login</title>
+</head>
+
+<body>
+
+    <header>
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row align-items-center justify-content-md-between top-bar">
+                <div class="col-12 col-md-2 logo">
+                   <i class="fas fa-quote-right txt-orange"></i>LiFe SaVeRs
+                </div>
+                <div class="col-12 col-md-8">
+                    <nav>
+                        <ul class="d-flex justify-content-center justify-content-md-end">
+                            <li><a href="/">Home</a></li>
+                            <li><a href="#">About Us</a></li>                            
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+             <div class="row">
+                <div class="col-1">
+                    <div class="form-box">
+                        <div class="form">
+                            <form class="login-form" method="POST" action="/login">
+                                <center><h1 class="main-heading">Login Form</h1></center>
+				                <input type="email"placeholder="email" name="email"/>
+				                <input type="password"placeholder="password" name="password"/>
+				                <button type="submit">LOGIN</button>
+								  <p class="message">Not Registered? <a href="/register">Register</a></p>
+							</form>
+                            <p style="color: #fff;">{{error}}</p>
+						</div>
+					</div></div></div>
+		</div>
+    </header>
+    
+  
+
+    <script src="js/jquery.js"></script>
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap.js"></script>
+</body>
+
+</html>
